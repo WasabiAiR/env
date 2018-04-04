@@ -4,6 +4,6 @@ go:
     - tip
     - 1.10.x
 
-install: go get -v ./...
+install: go get github.com/cheekybits/is
 
 script: go test -v ./...
