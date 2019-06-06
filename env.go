@@ -29,10 +29,11 @@ func GetenvBoolWithDefault(key string, defaultValue bool) bool {
 	for _, v := range vars {
 		pieces := strings.SplitN(v, "=", 2)
 		if pieces[0] == key {
-			if strings.ToLower(pieces[1]) == "true" {
-				return true
+			result, err := strconv.ParseBool(strings.ToLower(pieces[1]))
+			if err != nil {
+				return defaultValue
 			}
-			return false
+			return result
 		}
 	}
 	return defaultValue

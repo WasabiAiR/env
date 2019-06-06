@@ -39,13 +39,24 @@ func TestGetenvBoolWithDefault(t *testing.T) {
 
 	os.Setenv(key, "3456")
 	val = GetenvBoolWithDefault(key, true)
-	is.Equal(false, val)
+	is.Equal(true, val)
 
 	// explicitly set to empty string
 	os.Setenv(key, "")
 	val = GetenvBoolWithDefault(key, true)
-	is.Equal(false, val)
+	is.Equal(true, val)
 
+	os.Setenv(key, "1")
+	is.Equal(true, GetenvBoolWithDefault(key, false))
+
+	os.Setenv(key, "T")
+	is.Equal(true, GetenvBoolWithDefault(key, false))
+
+	os.Setenv(key, "TRUE")
+	is.Equal(true, GetenvBoolWithDefault(key, false))
+
+	os.Setenv(key, "TrUe")
+	is.Equal(true, GetenvBoolWithDefault(key, false))
 }
 
 func TestGetenvIntWithDefault(t *testing.T) {
