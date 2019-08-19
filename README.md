@@ -5,5 +5,5 @@
 Environment Variable Parsing with Default Values
 
 ```
-go get github.com/pkg/errors
+go get github.com/graymeta/env
 ```
