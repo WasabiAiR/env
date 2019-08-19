@@ -2,8 +2,7 @@ language: go
 
 go:
     - tip
-    - 1.10.x
-
-install: go get github.com/cheekybits/is
+    - 1.11.x
+    - 1.12.x
 
 script: go test -v ./...
